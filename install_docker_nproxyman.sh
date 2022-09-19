@@ -10,7 +10,7 @@ installApps()
     echo "       You also must have Docker-Compose for NGinX Proxy Manager to be installed."
     echo ""
     echo ""
-
+    
     ISACT=$( (sudo systemctl is-active docker ) 2>&1 )
     ISCOMP=$( (docker-compose -v ) 2>&1 )
 
@@ -53,11 +53,11 @@ installApps()
             esac
         done
     fi
-
+    
     startInstall
 }
 
-startInstall()
+startInstall() 
 {
     clear
     echo "#######################################################"
@@ -106,8 +106,8 @@ startInstall()
         fi
 
     fi
-
-
+        
+    
     #######################################################
     ###              Install for CentOS 7 or 8          ###
     #######################################################
@@ -209,8 +209,8 @@ startInstall()
 
         ######################################
         ###     Install Debian / Ubuntu    ###
-        ######################################
-
+        ######################################        
+        
         if [[ "$OS" == "2" || "$OS" == "3" || "$OS" == "4" ]]; then
             sudo apt install docker-compose -y >> ~/docker-script-install.log 2>&1
         fi
@@ -236,7 +236,7 @@ startInstall()
 
         echo ""
 
-        echo "      - Docker Compose Version is now: "
+        echo "      - Docker Compose Version is now: " 
         DOCKCOMPV=$(docker-compose --version)
         echo "        "${DOCKCOMPV}
         echo ""
@@ -273,7 +273,7 @@ startInstall()
         echo "##########################################"
         echo "###     Install NGinX Proxy Manager    ###"
         echo "##########################################"
-
+    
         # pull an nginx proxy manager docker-compose file from github
         echo "    1. Pulling a default NGinX Proxy Manager docker-compose.yml file."
 
@@ -303,7 +303,7 @@ startInstall()
         echo "        username: admin@example.com"
         echo "        password: changeme"
 
-        echo ""
+        echo ""       
         sleep 3s
         cd
     fi
@@ -376,7 +376,7 @@ startInstall()
         echo ""
         echo "    Navigate to your server hostname / IP address on port 4533 to setup"
         echo "    your new Navidrome admin account."
-        echo ""
+        echo ""      
         sleep 3s
         cd
     fi
@@ -419,4 +419,3 @@ do
     *) echo "Invalid selection, please try again..." ;;
   esac
 done
-
